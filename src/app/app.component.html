@@ -1,0 +1,91 @@
+<h2> <span [innerHTML]='title'></span></h2>
+<h1>{{dat}}</h1>
+
+<h1>Image binding example</h1>
+<img [src]="tgimg" [width]="per" [height]="pix">
+<h2>Using bind syntax :</h2>
+<img bind-src="tgimg" bind-width="per" bind-height="pix">
+<h2>Using colSpan property :</h2>
+<table border="1" rules="all" [width]=80>
+ <tr><td>1</td><td>2</td></tr>
+ <tr><td [colSpan]="csp">3</td></tr>
+ <tr><td>4</td><td>5</td></tr>
+</table>
+<br>
+<h2>Event Binding</h2>
+
+<input  #un bind-value="uname" [attr.disabled]=true>
+<button on-click="showData(un.value)" [class.addclr]="one">Clicked</button>
+<h2>Button property Disabled:</h2>
+<button [disabled]="isDisabled">Disabled</button>
+<h2>Binding directive ngClass :</h2>
+<p [ngClass]="backclr">[ngClass] directive</p>
+<h2>Custom elements :</h2>
+<app-item-details [childvar]="parentItem" [otherchild]="parentobj"></app-item-details>
+
+<h3>First Name :{{FirstName ? FirstName :'Not Available'}}</h3>
+<div *ngIf="isDisabled">
+<input [ngModel]="FirstName">
+</div>
+<br>
+
+<table border="1" rules="all">
+    <thead>
+        <th attr.colspan={{clsp}}>{{Student}}</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>First Name</td>
+            <td>{{FirstName}}</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>{{LastName}}</td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td>{{Mobile}}</td>
+        </tr>
+        <tr *ngIf="isActive">
+            <td>Email</td>
+            <td>{{email}}</td>
+        </tr>
+        <tr *ngIf="isActive">
+            <td>Password</td>
+            <td>{{Password}}</td>
+        </tr>
+        <tr *ngIf="isActive">
+            <td>Address</td>
+            <td>{{address}}</td>
+        </tr>
+        <tr attr.colspan={{clsp}}>
+            <button (click)="showDetail()">{{isActive ? 'Hide':'Show'}}Detail</button>
+        </tr>
+    </tbody>
+</table>
+<br>
+
+<h1>ngSwith statement</h1>
+<h2>Select country</h2>
+
+<select (change)=" setDropValue($event)">
+  <option value=""></option>
+  <option value="IN">In</option>
+  <option value="US">Us</option>
+  <option value="UK">Uk</option>
+</select>
+
+<div [ngSwitch]='dropValue'>
+
+    <h3 *ngSwitchCase="'IN'">India</h3>
+    <h3 *ngSwitchCase="'US'">United State</h3>
+    <h3 *ngSwitchCase="'UK'">United Kingdom</h3>
+ <h3 *ngSwitchDefault="">You have not selected any country</h3>
+</div>
+
+<h1>Routing Example</h1>
+
+<a [routerLink]="['/emplogin']">Employee</a>
+<div>
+    <router-outlet> </router-outlet>
+</div>

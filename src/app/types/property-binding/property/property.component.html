@@ -1,0 +1,77 @@
+<h1><span [innerHTML]='title'></span></h1>
+
+<h2>Binding input value :-</h2>
+ <input type="text" [value]="uname"><br>
+ <input type="text" bind-value="uname"><br>
+ <input type="text" [ngModel]="uname">
+{{uname}}
+ <h2>Image binding :-</h2>
+ <img [src]="imgpath" [width]=90>&nbsp;
+ <img bind-src='imgpath' bind-width=90>
+
+ <h2>Binding button property :-</h2>
+ <button type="button" [disabled]="isDisabled">Submit</button>
+ <button type="button" bind-disabled=false>Submit</button>
+  
+ <h2>Binding table property :-</h2>
+   <table bind-border='1' [rules]='rl' >
+       <tr>
+           <th>Id</th>
+           <th>Name</th>
+           <th>Email</th>
+       </tr>
+       <tbody>
+         <tr >
+           <td>1</td>
+           <td>Raghav</td>
+           <td>ra@gmail.com</td>
+       </tr>
+    </tbody>
+
+   </table>
+
+   <h2>Event binding exampla :-</h2>
+    
+     <input  #un [value]="uname" (change)="txtval($event)">
+     <button (click)="addData(un)">Submit</button><br>
+
+     <select (change)="addswitch($event)">
+       <option value=""></option>
+      <option value="In">IN</option>
+      <option value="Us">US</option>
+      <option value="Uk">UK</option>
+     </select>
+
+     <div [ngSwitch]="dropvalue">
+        <h2 *ngSwitchCase="'In'">India</h2>
+        <h2 *ngSwitchCase="'Us'">United State</h2>
+        <h2 *ngSwitchCase="'Uk'">United Kingdom</h2>
+        <h2 *ngSwitchDefault="">No value selected.</h2>
+     </div><br>
+
+     <h1>{{expression}}</h1>
+
+     <table border="1" rules="all">
+       <tr>
+         <th [colSpan]=2>Student Details</th>
+       </tr>
+       <tr>
+         <td>Name</td>
+         <td>Rahul</td>
+       </tr>
+       <tr>
+         <td>Address</td>
+         <td>Pune</td>
+       </tr>
+       <tr *ngIf="isShow">
+         <td>Email</td>
+         <td>ra@gmail.com</td>
+       </tr>
+       <tr *ngIf="isShow">
+         <td>Mobile</td>
+         <td>5858458966</td>
+       </tr>
+       <tr>
+         <td [attr.colspan]="2"><button (click)="showDetail()">{{isShow?'Hide':'Show'}}Details</button></td>
+       </tr>
+     </table>

@@ -1,0 +1,29 @@
+<p>employee-login works!</p>
+
+    <p>
+        Start typing. myForm FormGroup (which 'subject' and 'message' are controls within) is 2-way binding automatically.
+    </p>
+    <p>
+        Independently, 'subject' is two-way binding, and 'message' one-way binding.
+    </p>
+
+        <form #myForm='ngForm' (ngSubmit)="onSubmit(myForm)">
+            
+                <label floating>Subject</label>
+                <input type="text" [(ngModel)]="subject" name="subject">
+            
+            
+                <label floating>Message</label>
+                <textarea type="text" [ngModel]="message" name="message"></textarea>
+    
+            <button type="submit">
+                Submit</button>
+        </form>
+    
+    <p>
+        'myForm' FormGroup 2-way binding: {{ myForm.value | json }}
+    </p>
+    <h5>This is two-way bound</h5> Subject (updates when typing): "{{ subject }}"
+    <h5>This is one-way bound</h5> Message (doesn't update when typing): "{{ message }}"
+    <h4 *ngIf="subData">I show after Submission</h4>
+    <p *ngIf="subData">Message After Submit: "{{ subData.message }}"</p>
